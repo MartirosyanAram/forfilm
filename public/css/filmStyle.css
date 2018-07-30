@@ -1,0 +1,42 @@
+<style>
+#havvayi{background-color: red;}
+body{background-color: rgb(98, 139, 255);}
+  #head{
+   border:2px solid black;
+   width:1100px;
+   height:700px;
+   margin:0px auto;
+   background-image:url('/film/back.jpg');
+   background-repeat: none;
+     }
+  img{
+    margin-left: 31%;
+    margin-top:3%;
+    width: 400px;
+    height: 400px;
+    }
+  #vernagir{
+    color:rgb(0, 204, 255);
+    margin-left: 40%;
+    font-size: 70px;
+  }
+  #comment{
+    color:rgb(0, 0, 77);
+    font-size: 24px;
+    margin-left: 20%;
+    margin-top:3%;
+}
+  a{text-decoration: none;color:black;margin-left: 15%;}
+
+  #home{
+  border: 2px solid blue;
+  font-size:30px;
+  margin-right: 5%;
+  width:100px;
+  float:right;
+  color:black
+  }
+  #home:hover{
+    background-color: green;
+  }
+</style>
