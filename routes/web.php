@@ -16,3 +16,8 @@
 
 Route::get('/','FilmControl@direction');
 Route::get('film/{par}', 'FilmControl@cinema');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@direction');
+Route::get('/cinema/{par}', 'HomeController@cinema');

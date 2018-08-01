@@ -9,6 +9,17 @@ body{background-color: rgb(98, 139, 255);}
    background-image:url('/film/back.jpg');
    background-repeat: none;
      }
+     #logout{
+       margin-left: 91%;
+       position: fixed;
+       border-color:blue;
+       background-color:blue;
+       font-weight: bold;
+       border-radius:35px;
+       font-size: 20px;
+       width:100px;
+     }
+     #logout:hover{background-color: lime;}
   img{
     margin-left: 31%;
     margin-top:3%;

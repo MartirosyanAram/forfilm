@@ -1,5 +1,5 @@
 <style>
-  #havvayi{background-color: red;}
+#havayi{;}
   body{background-color: rgb(98, 139, 255);}
  img{
   float: left;
@@ -7,6 +7,41 @@
   width:250px;
   height: 180px;
   }
+#logout{
+  margin-left: 91%;
+  position: fixed;
+  border-color:blue;
+  background-color:blue;
+  font-weight: bold;
+  border-radius:35px;
+  font-size: 20px;
+  width:100px;
+}
+#logout:hover{background-color: lime;}
+   #admin{
+     position:fixed;
+     margin-left: 90.5%;
+  }
+
+  #log{
+  text-align: center;
+  border:2px solid blue;
+  background-color: blue;
+  border-radius: 20px;
+}
+#log:hover{background-color: lime;}
+#reg{
+text-align: center;
+border:2px solid blue;
+background-color: blue;
+border-radius: 20px;
+width: 110px;
+}
+#reg:hover{background-color: lime;}
+ #admin a{
+ font-size: 20px;text-decoration: none;color:black;
+ }
+
        .pagination li{
          background-color:rgb(8, 4, 108);
          list-style: none;
