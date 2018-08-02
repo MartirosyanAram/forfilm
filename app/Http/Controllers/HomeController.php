@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FilmModel;
+use App\Http\Controllers\ComentControl;
 class HomeController extends Controller
 {
     /**
@@ -28,6 +29,9 @@ class HomeController extends Controller
 
      public function cinema($parametr) {
         $cinema=FilmModel::film($parametr);
-        return view('homeCinema',compact('cinema'));
+        $offset=0;
+        $limit=8;
+        $all=ComentControl::returnComments($offset,$limit);
+        return view('homeCinema',compact('cinema','all'));
      }
 }

@@ -4,7 +4,7 @@ body{background-color: rgb(98, 139, 255);}
   #head{
    border:2px solid black;
    width:1100px;
-   height:700px;
+   height:1100px;
    margin:0px auto;
    background-image:url('/film/back.jpg');
    background-repeat: none;
@@ -45,9 +45,43 @@ body{background-color: rgb(98, 139, 255);}
   margin-right: 5%;
   width:100px;
   float:right;
+  margin-top: 1%;
   color:black
   }
   #home:hover{
     background-color: green;
   }
+
+  #commentTable{
+   padding: 0px;
+   width:900px;
+   height: 356px;
+   margin:0px auto;
+   margin-top: 2%;
+   border:3px solid blue;
+  }
+table{width: 880px;}
+td{border-bottom: 1px solid black;height:30px;}
+#forComments{
+  overflow-x: hidden;
+  height: 275px;
+
+}
+#button{
+float: right;
+height: 50px;
+width: 85px;
+border:2px solid blue;
+
+background-color: rgb(0, 118, 253);
+font-size:14px;
+
+font-weight: bolder;
+}
+  textarea {
+    background-color: rgb(0, 170, 204);
+  margin:0px;
+  resize: none;
+}
+
 </style>

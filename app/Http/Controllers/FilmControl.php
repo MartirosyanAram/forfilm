@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FilmModel;
-
+use App\Http\Controllers\ComentControl;
 class FilmControl extends Controller
 {
   public function direction() {
@@ -14,7 +14,10 @@ class FilmControl extends Controller
 
   public function cinema($parametr) {
      $film=FilmModel::film($parametr);
-     return view('Film',compact('film'));
+     $offset=0;
+     $limit=8;
+     $all=ComentControl::returnComments($offset,$limit);
+     return view('Film',compact('film','all'));
   }
 
 }
