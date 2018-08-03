@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ComentModel;
-
+use Illuminate\Support\Facades\Auth;
 class ComentControl extends Controller
 {
+
     public function addOtherComent(Request $request) {
         $com=$request->get('comment');
         ComentModel::addOtherComent($com);
@@ -14,11 +15,13 @@ class ComentControl extends Controller
      }
 
     public function addUsersComent(Request $request) {
-
-        $comment=$request->get('comment');
-      //  $user= Auth::user()->login;
-         $user='aram';
-         ComentModel::addUsersComent($comment,$user);
+         $comment=$request->get('comment');
+         $user = Auth::user();
+         $username = 'Ancanot';
+         if ($user) {
+           $username = $user->login;
+         }
+         ComentModel::addUsersComent($comment, $username);
          return $this->returnComment();
      }
 

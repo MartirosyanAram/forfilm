@@ -36,52 +36,48 @@ body{background-color: rgb(98, 139, 255);}
     font-size: 24px;
     margin-left: 20%;
     margin-top:3%;
-}
-  a{text-decoration: none;color:black;margin-left: 15%;}
-
+    width:700px;
+    text-align: justify;
+    }
+   a{text-decoration: none;color:black;margin-left: 15%;}
   #home{
-  border: 2px solid blue;
-  font-size:30px;
-  margin-right: 5%;
-  width:100px;
-  float:right;
-  margin-top: 1%;
-  color:black
-  }
+    border: 2px solid blue;
+    font-size:30px;
+    margin-right: 5%;
+    width:100px;
+    float:right;
+    margin-top: 1%;
+    color:black
+   }
   #home:hover{
     background-color: green;
   }
-
   #commentTable{
-   padding: 0px;
-   width:900px;
-   height: 356px;
-   margin:0px auto;
-   margin-top: 2%;
-   border:3px solid blue;
-  }
-table{width: 880px;}
-td{border-bottom: 1px solid black;height:30px;}
-#forComments{
-  overflow-x: hidden;
-  height: 275px;
-
-}
-#button{
-float: right;
-height: 50px;
-width: 85px;
-border:2px solid blue;
-
-background-color: rgb(0, 118, 253);
-font-size:14px;
-
-font-weight: bolder;
-}
+    padding: 0px;
+    width:900px;
+    height: 356px;
+    margin:0px auto;
+    margin-top: 2%;
+    border:3px solid blue;
+   }
+  table{width: 880px;}
+  td{border-bottom: 1px solid black;height:30px;}
+  #forComments{
+   overflow-x: hidden;
+   height: 275px;
+ }
+  #button{
+   float: right;
+   height: 50px;
+   width: 85px;
+   border:2px solid blue;
+   background-color: rgb(0, 118, 253);
+   font-size:14px;
+   font-weight: bolder;
+   }
   textarea {
     background-color: rgb(0, 170, 204);
-  margin:0px;
-  resize: none;
-}
-
+    margin:0px;
+    resize: none;
+   }
 </style>
