@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\FilmModel;
+use App\LikeModel;
 use App\Http\Controllers\ComentControl;
 class FilmControl extends Controller
 {
@@ -17,7 +18,11 @@ class FilmControl extends Controller
      $offset=0;
      $limit=8;
      $all=ComentControl::returnComments($offset,$limit);
-     return view('Film',compact('film','all'));
+     $likeArr=LikeModel::returnLike();
+     $like=$likeArr[0]->like;
+     $dislikeArr=LikeModel::returnDislike();
+     $dislike=$dislikeArr[0]->dislike;
+     return view('Film',compact('film','all','like','dislike'));
   }
 
 }

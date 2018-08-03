@@ -4,7 +4,7 @@ body{background-color: rgb(98, 139, 255);}
   #head{
    border:2px solid black;
    width:1100px;
-   height:1100px;
+   height:1200px;
    margin:0px auto;
    background-image:url('/film/back.jpg');
    background-repeat: none;
@@ -39,6 +39,7 @@ body{background-color: rgb(98, 139, 255);}
     width:700px;
     text-align: justify;
     }
+
    a{text-decoration: none;color:black;margin-left: 15%;}
   #home{
     border: 2px solid blue;
@@ -80,4 +81,25 @@ body{background-color: rgb(98, 139, 255);}
     margin:0px;
     resize: none;
    }
+   #likeButtons{
+     margin:0px auto;
+     width: 140px;
+   }
+   #like{
+     font-size: 20px;
+     background-color: rgb(0, 118, 253);
+   }
+   #dislike{
+     font-size: 20px;
+     background-color: rgb(0, 118, 253);
+   }
+   .p{
+     border:2px solid blue;
+     background-color: rgb(0, 170, 204);
+     text-align:center;
+     font-size: 18px;
+     width:97px;
+     font-weight: bold;
+    }
+
 </style>

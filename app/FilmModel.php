@@ -13,5 +13,5 @@ class FilmModel extends Model
   public static function film($id) {
      return $film=DB::table('film_models')->select('images','comment','name')->where('id',$id)->get();
            }
-public $timestamps = false;
+   public $timestamps = false;
 }

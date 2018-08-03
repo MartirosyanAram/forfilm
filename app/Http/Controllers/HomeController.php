@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FilmModel;
+use App\LikeModel;
 use App\Http\Controllers\ComentControl;
 class HomeController extends Controller
 {
@@ -32,6 +33,10 @@ class HomeController extends Controller
         $offset=0;
         $limit=8;
         $all=ComentControl::returnComments($offset,$limit);
-        return view('homeCinema',compact('cinema','all'));
+        $likeArr=LikeModel::returnLike();
+        $like=$likeArr[0]->like;
+        $dislikeArr=LikeModel::returnDislike();
+        $dislike=$dislikeArr[0]->dislike;
+        return view('homeCinema',compact('cinema','all','like','dislike'));
      }
 }
