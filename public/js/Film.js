@@ -41,61 +41,84 @@ $('#forComments').scroll(function(){
         })
 
 //for like and dislike
-Cookies.set('i', 0);
-Cookies.set('j', 0);
+
+Cookies.set('NullLike','null') ;
   $('#like').click(function(){
-   if(Cookies.get('dislike')=='ancanot'){forLike('/back/like');}
-   if( Number(Cookies.get('i'))%2==0){forLike('/plus/like'); }
-   else if( Number(Cookies.get('i'))%2!=0){forLike('/minus/like');}
+      if(Cookies.get('dislike')=='plus' &&
+        ( Cookies.get('like')=='minus' || Cookies.get('NullLike')=='null' ) )
+      {
+     forLike('/back/dislike');
+             Cookies.set('like','plus');
+             Cookies.set('dislike','minus');
+             Cookies.set('disabledDis','false');
+             Cookies.set('disabledLike','true');
+     }
+
+     else if( Cookies.get('disabledLike')!='true' &&  Cookies.get('like')!='plus' ){
+              forLike('/plus/like');
+              Cookies.set('like','plus');
+     }
+      else if( Cookies.get('disabledLike')!='true' &&  Cookies.get('like')!='minus' ) {
+              forLike('/minus/like');
+              Cookies.set('like','minus');
+       }
+})
 
 
-        })
+
+
+Cookies.set('NullDisike','null') ;
 
   $('#dislike').click(function(){
-    if(Number(Cookies.get('j'))%2==0){
-      Cookies.set('j',Number(Cookies.get('j'))+1);
+
+    if( Cookies.get('like')=='plus' &&
+      ( Cookies.get('dislike')=='minus' || Cookies.get('NullDisike')=='null' ) ){
+              forDislike('/back/like');
+              Cookies.set('dislike','plus');
+              Cookies.set('disabledDis','true');
+              Cookies.set('disabledLike','false');
+              Cookies.set('like','minus');
+        }
+     else if( Cookies.get('disabledDis')!='true' &&  Cookies.get('dislike')!='plus' ){
+              forDislike('/plus/dislike');
+              Cookies.set('dislike','plus');
+       }
+    else if( Cookies.get('disabledDis')!='true' &&  Cookies.get('dislike')!='minus' ){
+      forDislike('/minus/dislike');
+      Cookies.set('dislike','minus');
      }
-    else{;}
-    Cookies.set('dislike','ancanot');
-  /*  if( Cookies.get('dislike')=='ancanot' ){alert('duq arten dislikeleq') ;}
-    else{
-      var url="/dislike";
-      if(Cookies.get('like')=='ancanot'){ url="/back/like"}
-        Cookies.set('dislike', 'ancanot');
-        $.ajax({
-           url: url,
-           type: "POST",
-           headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),},
-           })
-           .done( function(dislike) {
-             if( $.isArray(dislike) ) {
-               $('#p1').html('likes- '+dislike[0]);
-               $('#p2').html('dislikes- '+dislike[1]);
-             }
-             else{
-               $('#p2').html('dislikes- '+dislike);
-             }
-           })
-        }*/
-      })
+  })
+
+function forDislike(url){
+  $.ajax({
+        url: url,
+        type: "PUT",
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),},
+       })
+  .done( function(dislike) {
+                  if( $.isArray(dislike) ) {
+                     $('#p1').html('likes- '+dislike[0]);
+                     $('#p2').html('dislikes- '+dislike[1]);
+                   }
+                 else{
+                     $('#p2').html('dislikes- '+dislike);
+                     }
+         })
+  }
 
 function forLike(url){
-
-    alert(Cookies.get('i'));
-    Cookies.set('i', Number(Cookies.get('i'))+1);
-    Cookies.set('like', 'ancanot');
   $.ajax({
-       url: url,
-       type: "POST",
-       headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),},
+         url: url,
+         type: "PUT",
+         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),},
        })
-    .done( function(like) {
-        if( $.isArray(like) ) {
-        $('#p1').html('likes- '+like[0]);
-        $('#p2').html('dislikes- '+like[1]);
-        }
-    else {
-        $('#p1').html('likes- '+like);
-        }
-          })
+  .done( function(like) {
+           if( $.isArray(like) ) {
+                $('#p1').html('likes- '+like[0]);
+                $('#p2').html('dislikes- '+like[1]);
+             }
+           else {
+                $('#p1').html('likes- '+like);
+                }
+      })
 }

@@ -8,18 +8,13 @@ use App\LikeModel;
 
 class LikeControl extends Controller
 {
-    public function addAndReturnLike(){
+
+///for like +/-
+    public function plusAndReturnLike(){
        $likes=LikeModel::returnLike();
        $newLikes=$likes[0]->like+1;
        LikeModel::addLike($newLikes);
        return $newLikes;
-    }
-
-    public function addAndReturnDislike(){
-      $dislikes=LikeModel::returnDislike();
-      $newDislikes=$dislikes[0]->dislike+1;
-      LikeModel:: addDislike($newDislikes);
-      return $newDislikes;
     }
       public function  minusAndReturnLike(){
         $likes=LikeModel::returnLike();
@@ -27,6 +22,23 @@ class LikeControl extends Controller
         LikeModel::addLike($newLikes);
         return $newLikes;
       }
+
+
+//for dislike +/-
+      public function plusAndReturnDislike(){
+        $dislikes=LikeModel::returnDislike();
+        $newDislikes=$dislikes[0]->dislike+1;
+        LikeModel:: addDislike($newDislikes);
+        return $newDislikes;
+      }
+      public function minusAndReturnDislike(){
+        $dislikes=LikeModel::returnDislike();
+        $newDislikes=$dislikes[0]->dislike-1;
+        LikeModel:: addDislike($newDislikes);
+        return $newDislikes;
+      }
+
+//for like/dislike back
     public function backLike(){
       $likes=LikeModel::returnLike();
       $newLikes=$likes[0]->like-1;
