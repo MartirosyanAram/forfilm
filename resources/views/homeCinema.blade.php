@@ -26,6 +26,7 @@
               <button id='dislike'>Dislike</button>
               <div id='p1' class='p'>likes- {{$like}}</div>
               <div id='p2' class='p'>dislikes- {{$dislike}}</div>
+              <a id='buy' href='/addmoney/stripe'>buy this</a>
             </div>
             <div id="commentTable">
                 <div id="forComments">
@@ -41,6 +42,7 @@
                  <script type="text/javascript" src="{{URL::asset('js/homeCinema.js')}}"></script>
            </div>
         <div id="home"><a href='/home'>home</a></div>
+
       </div>
     </body>
 </html>

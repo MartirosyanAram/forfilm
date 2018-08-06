@@ -4,11 +4,16 @@ body{background-color: rgb(98, 139, 255);}
   #head{
    border:2px solid black;
    width:1100px;
-   height:1200px;
+   height:1220px;
    margin:0px auto;
    background-image:url('/film/back.jpg');
    background-repeat: none;
      }
+     #buy{
+       font-size: 30px;
+       margin:0px auto;
+     }
+     #buy:hover{color:red;}
      #logout{
        margin-left: 91%;
        position: fixed;

@@ -19,5 +19,11 @@ Route::put('/back/dislike', 'LikeControl@backDislike');
 
 //autorizacia
 Auth::routes();
-Route::get('/home','HomeController@direction');
+Route::get('/home','HomeController@direction')->name('home');
 Route::get('/cinema/{par}','HomeController@cinema');
+//payment
+Route::get('addmoney/stripe',
+ array('as' => 'addmoney.paywithstripe','uses' => 'AddMoneyController@payWithStripe'));
+
+Route::post('addmoney/stripe',
+ array('as' => 'addmoney.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
