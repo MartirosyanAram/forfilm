@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ComentModel;
 use Illuminate\Support\Facades\Auth;
+
 class ComentControl extends Controller
 {
 
@@ -38,6 +39,5 @@ class ComentControl extends Controller
       public  function returnComment() {
           return  $allComments = ComentModel::returnComment();
          }
-
 
 }

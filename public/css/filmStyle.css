@@ -4,7 +4,7 @@ body{background-color: rgb(98, 139, 255);}
   #head{
    border:2px solid black;
    width:1100px;
-   height:1220px;
+   height:1230px;
    margin:0px auto;
    background-image:url('/film/back.jpg');
    background-repeat: none;
@@ -25,10 +25,10 @@ body{background-color: rgb(98, 139, 255);}
        width:100px;
      }
      #logout:hover{background-color: lime;}
-  img{
-    margin-left: 31%;
-    margin-top:3%;
-    width: 400px;
+  iframe{
+    margin-left: 21%;
+    margin-top:3% ;
+    width: 600px;
     height: 400px;
     }
   #vernagir{

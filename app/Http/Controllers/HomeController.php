@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\FilmModel;
 use App\LikeModel;
 use App\Http\Controllers\ComentControl;
+use Alaouy\Youtube\Facades\Youtube;
 class HomeController extends Controller
 {
     /**
@@ -37,6 +38,12 @@ class HomeController extends Controller
         $like=$likeArr[0]->like;
         $dislikeArr=LikeModel::returnDislike();
         $dislike=$dislikeArr[0]->dislike;
-        return view('homeCinema',compact('cinema','all','like','dislike'));
+        $treiler=$this->you($cinema[0]->name);
+        return view('homeCinema',compact('cinema','treiler','all','like','dislike'));
      }
+
+     public function you($name){
+            $results=Youtube::searchVideos($name.' oficial treiler');
+            return $results[0]->id->videoId;
+       }
 }

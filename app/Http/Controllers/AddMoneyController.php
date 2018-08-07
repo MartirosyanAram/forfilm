@@ -25,55 +25,55 @@ class AddMoneyController extends Controller
 public function postPaymentWithStripe(Request $request)
    {
      $validator = Validator::make($request->all(), [
-         'card_no' => 'required',
-         'ccExpiryMonth' => 'required',
-         'ccExpiryYear' => 'required',
-         'cvvNumber' => 'required',
+          'card_no' => 'required',
+          'ccExpiryMonth' => 'required',
+          'ccExpiryYear' => 'required',
+          'cvvNumber' => 'required',
        ]);
-   $input = $request->all();
-   foreach ($input as $key => $value){
-        if(!$input[$key]){
-            return redirect('addmoney/stripe')->
-            with('bac','Missed field');exit();
-          }
-       }
+     $input = $request->all();
+          foreach ($input as $key => $value){
+                if(!$input[$key]){
+                       return redirect('addmoney/stripe')->
+                       with('bac','Missed field');exit();
+                 }
+            }
 
   if ($validator->passes()) {
-        $input = array_except($input,array('_token'));
-        $stripe = Stripe::make('sk_test_PVXtzkhKGE6eV0iuxTqgh4iZ');
+         $input = array_except($input,array('_token'));
+         $stripe = Stripe::make('sk_test_PVXtzkhKGE6eV0iuxTqgh4iZ');
 
  try {
 
       $token = $stripe->tokens()->create([
-         'card' => [
-         'number' => $request->get('card_no'),
-         'exp_month' => $request->get('ccExpiryMonth'),
-         'exp_year' => $request->get('ccExpiryYear'),
-         'cvc' => $request->get('cvvNumber'),
-        ],
-      ]);
+           'card' => [
+           'number' => $request->get('card_no'),
+           'exp_month' => $request->get('ccExpiryMonth'),
+           'exp_year' => $request->get('ccExpiryYear'),
+           'cvc' => $request->get('cvvNumber'),
+           ],
+        ]);
 
 
-    if (!isset($token['id'])) {
-        return redirect()->route('addmoney.paywithstripe');
-     }
-   $charge = $stripe->charges()->create([
-        'card' => $token['id'],
-        'currency' => 'USD',
-        'amount' => 10.49,
-        'description' => 'Add in wallet',
-     ]);
+      if (!isset($token['id'])) {
+           return redirect()->route('addmoney.paywithstripe');
+        }
+      $charge = $stripe->charges()->create([
+          'card' => $token['id'],
+          'currency' => 'USD',
+          'amount' => 10.49,
+          'description' => 'Add in wallet',
+       ]);
 
-    if($charge['status'] == 'succeeded') {
-        return redirect()->route('home');
-        exit();
-     }
+        if($charge['status'] == 'succeeded') {
+            return redirect()->route('home');
+            exit();
+        }
 
-   else {
-      \Session::put('error','Money not add in wallet!!');
-      return redirect()->route('addmoney.paywithstripe');
+       else {
+          \Session::put('error','Money not add in wallet!!');
+          return redirect()->route('addmoney.paywithstripe');
       }
- }
+  }
       catch (Exception $e) {
             \Session::put('error',$e->getMessage());
             return redirect()->route('addmoney.paywithstripe');

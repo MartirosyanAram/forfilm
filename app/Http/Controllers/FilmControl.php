@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\FilmModel;
 use App\LikeModel;
 use App\Http\Controllers\ComentControl;
+use Alaouy\Youtube\Facades\Youtube;
 class FilmControl extends Controller
 {
   public function direction() {
@@ -22,7 +23,14 @@ class FilmControl extends Controller
      $like=$likeArr[0]->like;
      $dislikeArr=LikeModel::returnDislike();
      $dislike=$dislikeArr[0]->dislike;
-     return view('Film',compact('film','all','like','dislike'));
+     $trailer=$this->you($film[0]->name);
+     return view('Film',compact('film','trailer','all','like','dislike'));
   }
+
+
+  public function you($name){
+         $results=Youtube::searchVideos($name.' oficial treiler');
+         return $results[0]->id->videoId;
+    }
 
 }

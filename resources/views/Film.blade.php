@@ -12,7 +12,7 @@
       <div id="head">
               @foreach ($film as $fil)
                 <div class='images'>
-                   <img src= {{ $fil->images}} >
+                   <iframe src="https://youtube.com/embed/{{ $trailer }}"></iframe>
                    <div id='vernagir'>{{$fil->name}}</div>
                    <div id='comment'>{{ $fil->comment }}</div>
                 </div>
